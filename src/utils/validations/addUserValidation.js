@@ -14,7 +14,7 @@ const addUserValidationSchema = Yup.object().shape({
 		.required('Email is required'),
 	gender: Yup.string()
 		.label('Gender')
-		.matches(/(male|female)/),
+		.matches(/(male|female)/), // gender is a string for now to save time
 });
 
 export default addUserValidationSchema;

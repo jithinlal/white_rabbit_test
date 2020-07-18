@@ -1,8 +1,5 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-import * as userActions from '../store/actions/user.action';
-import * as authActions from '../store/actions/auth.action';
 import {
 	Container,
 	List,
@@ -11,6 +8,11 @@ import {
 	Input,
 } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+
+import * as userActions from '../store/actions/user.action';
+import * as authActions from '../store/actions/auth.action';
+
+import UserList from '../components/User-List';
 
 const HomeScreen = (props) => {
 	const dispatch = useDispatch();
@@ -67,13 +69,11 @@ const HomeScreen = (props) => {
 			<List>
 				{users.map((user, index) => {
 					return (
-						<ListItem key={index}>
-							{/* {console.log(user)} */}
-							<ListItemText
-								primary={user.user.username}
-								secondary={user.user.email}
-							/>
-						</ListItem>
+						<UserList
+							key={index}
+							username={user.user.username}
+							email={user.user.email}
+						/>
 					);
 				})}
 			</List>

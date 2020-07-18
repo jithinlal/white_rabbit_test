@@ -1,13 +1,9 @@
-// import passwordHash from 'password-hash';
-
 import { LOGIN, LOGOUT } from '../types/auth.type';
 import { loginApi } from '../../services/login.service';
 
 export const login = (values) => {
 	return async (dispatch) => {
 		try {
-			// let hashedPassword = passwordHash.generate(password);
-
 			let authenticatedList = await loginApi(values);
 
 			if (authenticatedList.length > 0) {
