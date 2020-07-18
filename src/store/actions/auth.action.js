@@ -1,6 +1,6 @@
 // import passwordHash from 'password-hash';
 
-import { LOGIN } from '../types/auth.type';
+import { LOGIN, LOGOUT } from '../types/auth.type';
 import { loginApi } from '../../services/login.service';
 
 export const login = (values) => {
@@ -20,6 +20,22 @@ export const login = (values) => {
 				localStorage.setItem('isAuth', false);
 				throw new Error('Username or password is wrong!');
 			}
+		} catch (error) {
+			// This can be used to logging
+			console.log(error);
+			throw new Error('Internal server error, please try again later');
+		}
+	};
+};
+
+export const logOut = (values) => {
+	return async (dispatch) => {
+		try {
+			localStorage.removeItem('isAuth');
+			dispatch({
+				type: LOGOUT,
+				authenticated: false,
+			});
 		} catch (error) {
 			// This can be used to logging
 			console.log(error);
