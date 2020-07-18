@@ -1,12 +1,6 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-	Container,
-	List,
-	ListItem,
-	ListItemText,
-	Input,
-} from '@material-ui/core';
+import { Container, List, Input } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 import * as userActions from '../store/actions/user.action';
