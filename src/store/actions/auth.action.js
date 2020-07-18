@@ -6,6 +6,7 @@ export const login = (values) => {
 		try {
 			let authenticatedList = await loginApi(values);
 
+			// not looking to hash here, because it's somethign we are doing on the backend
 			if (authenticatedList.length > 0) {
 				localStorage.setItem('isAuth', true);
 				dispatch({

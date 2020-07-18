@@ -5,6 +5,7 @@ import { FETCH_USERS, ADD_USERS, SEARCH_USERS } from '../types/user.type';
 export const fetchUsers = () => {
 	return async (dispatch) => {
 		try {
+			// Only takes up the api on initial load, nothing after that
 			if (!localStorage.getItem('initial')) {
 				localStorage.setItem('initial', true);
 				const response = await axios.get(

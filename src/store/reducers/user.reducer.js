@@ -6,6 +6,11 @@ const initialState = {
 
 export default (state = initialState, action) => {
 	switch (action.type) {
+		/*
+		 * one simple action type is enough
+		 * But for more complex state management
+		 * seperation on concern is better
+		 */
 		case FETCH_USERS:
 			return {
 				...state.users,
